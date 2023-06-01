@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import "./App.css";
+import MovieList from "./components/MoveisList";
 
 function App() {
+  const dummyMovies = [
+    {
+      id: 1,
+      title: "Some Dummy Movie",
+      openingText: "This is the opening text of the movie",
+      releaseDate: "2021-05-18",
+    },
+    {
+      id: 2,
+      title: "Some Dummy Movie 2",
+      openingText: "This is the second opening text of the movie",
+      releaseDate: "2021-05-19",
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <section>
+        <button>Fetch Movies</button>
+      </section>
+      <section>
+        <MovieList movies={dummyMovies} />
+      </section>
+    </Fragment>
   );
 }
 
