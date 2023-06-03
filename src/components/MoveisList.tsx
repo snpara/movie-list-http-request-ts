@@ -1,21 +1,16 @@
-import Movie, { MovieProps } from "./Movie";
+import Movie, { MovieProps, MovieType } from "./Movie";
 
 import styles from "./MovieList.module.css";
 
 interface MovieListProps {
-  movies: MovieProps[];
+  movies: MovieType[];
 }
 
 const MovieList: React.FC<MovieListProps> = (props) => {
   return (
     <ul className={styles["movie-list"]}>
-      {props.movies.map((movie: MovieProps) => (
-        <Movie
-          id={movie.id}
-          title={movie.title}
-          releaseDate={movie.releaseDate}
-          openingText={movie.openingText}
-        />
+      {props.movies.map((movie) => (
+        <Movie movie={movie} />
       ))}
     </ul>
   );
